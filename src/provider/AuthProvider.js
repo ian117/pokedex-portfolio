@@ -36,7 +36,7 @@ const useProvideAuth = () => {
         singOut
     }
 }
-
+//El wrapper y conexión del Provider mediante Value
 export const ProvideAuth = ({children}) => {
     const auth = useProvideAuth()
 
@@ -45,4 +45,5 @@ export const ProvideAuth = ({children}) => {
             </authContext.Provider>
     )}
 
-    export const useAuth = () => useContext(authContext)
+//Con esto usamos el Contexto que fabricamos en authContext (el objeto de 3 propiedades) importándolo en otros componentes
+export const useAuth = () => useContext(authContext)
