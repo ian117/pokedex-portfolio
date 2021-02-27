@@ -4,6 +4,7 @@ import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import AuthButton from "./components/AuthButton";
 import LoginPage from "./components/LoginPage";
 import { ProvideAuth } from "./provider/AuthProvider";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <Switch>
           <Route path="/public">Estamos in Halo Invasion</Route>
           <Route path="/login"><LoginPage/></Route>
-          <Route path="/protected">Estamos seguros y planeando la invasión</Route>
+          <ProtectedRoute path="/protected">Estamos seguros y planeando la invasión</ProtectedRoute>
       </Switch>
       
       </div>
