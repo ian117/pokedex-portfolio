@@ -14,6 +14,9 @@ function AuthButton() {
             <button onClick={() => singOut(() => {})}>
                 Logout
             </button>
+            <button style={{marginLeft:"10px"}} onClick={() => history.push("/")} >
+                Home
+            </button>
             </div> : 
             <DivForButton>
             <button onClick={() => singIn(() => {})}>

@@ -14,12 +14,15 @@ function App() {
       <div className="App">
         <Header></Header>
 
-        <ul style={{listStyle:"none"}}>
-          <li><Link to="/public">Tyari Plaza</Link></li>
-          <li><Link to="/protected">Hidden Place</Link></li>
-        </ul>
+
 
       <Switch>
+          <Route exact path="/">
+          <ul style={{listStyle:"none"}}>
+            <li><Link to="/public">Tyari Plaza</Link></li>
+            <li><Link to="/protected">Hidden Place</Link></li>
+          </ul>
+          </Route>
           <Route path="/public">Estamos in Halo Invasion</Route>
           <Route path="/login"><LoginPage/></Route>
           <ProtectedRoute path="/protected">Estamos seguros y planeando la invasión</ProtectedRoute>
