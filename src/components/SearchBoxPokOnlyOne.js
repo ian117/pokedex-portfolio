@@ -10,7 +10,6 @@ function SearchBoxPokOnlyOne({handleResults}) {
     
     const OnSubmit = (data) => {
         const SearchThis = URLPokemonSearch + data.name 
-        console.log(SearchThis.toLowerCase())
         handleResults(SearchThis.toLowerCase())
     }
 

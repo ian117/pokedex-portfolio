@@ -1,21 +1,21 @@
 import React, {useEffect, useState}  from 'react';
 import GetPokemonAllTypes from "../utils/GetPokemonAllTypes";
 import { useForm } from "react-hook-form";
-import styled from "styled-components"
+import styled from "styled-components";
 
 function SearchBox({handleResults}) {
 
     const { register, handleSubmit } = useForm();
 
     const [pokemonTypes, setPokemonTypes] = useState( new Array() );
-    
-    
+
+
     useEffect(() => {
         GetPokemonAllTypes(setPokemonTypes)
     }, [])
 
+
     const OnSubmit = (data) => {
-        console.log(data.type)
         handleResults(data.type)
     }
 
