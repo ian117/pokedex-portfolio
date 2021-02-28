@@ -3,21 +3,26 @@ import styled from "styled-components"
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import AuthButton from "./AuthButton";
+import { useAuth } from "../provider/AuthProvider";
 
 
 function Header() {
+
+    const { user } = useAuth()
+
     return (
         <Container>
             <Main>
             <AuthButton/>
             </Main>
             <UserContainer>
-                <Name>
+                {user ? <><Name>
                     User
                 </Name>
                 <UserImage>
                     <img src="https://i.imgur.com/6VBx3io.png"/>
-                </UserImage>
+                </UserImage></> :
+                null}
             </UserContainer>
         </Container>
     )
