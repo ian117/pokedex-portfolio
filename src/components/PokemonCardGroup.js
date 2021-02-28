@@ -8,16 +8,17 @@ function PokemonCardGroup({data}) {
 
     return (
         <CardContainer>
-            <p>{name}</p>
+            {data ? <><p>{name}</p>
             <img alt="PokemonImg" src={sprites.front_shiny}/>
             <p>Type:</p>
             <ul>
             {types.map((type) => <li style={{listStyle:'none'}} key={type.type.name}>{type.type.name}</li>)}
             </ul>
-            <p>{stats[0].stat.hp}</p>
-            <p>Attack</p>
-            <p>Defense</p>
-            <p>Speed</p>
+            <p>{`HP: ${stats[0].base_stat}`}</p>
+            <p>{`Attack: ${stats[1].base_stat}`}</p>
+            <p>{`Defense: ${stats[2].base_stat}`}</p>
+            <p>{`Speed: ${stats[5].base_stat}`}</p> </> : 
+            null}
         </CardContainer>
     )
 }

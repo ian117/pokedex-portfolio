@@ -28,8 +28,8 @@ function Pokedex() {
             <SearchBox handleResults={setPokemonsToShowURL}/>
             <SearchBoxPokOnlyOne handleResults={setPokemonsToShowURL}/>
           </SeparetorDivInputs>
-        {pokemonsToShow.pokemon ? <PokemonCardGroup/> : null}  
-        {pokemonsToShow.sprites ? <PokemonCardGroup data={pokemonsToShow}/> : null}  
+        {pokemonsToShow.pokemon ? <p>Hey</p> : null}  
+        {pokemonsToShow.sprites ? <PokemonCardGroup data={pokemonsToShow}/> : null}
         </>
     )
 }
