@@ -1,38 +1,28 @@
 import React, {useEffect, useState}  from 'react';
-import GetPokemonAllTypes from "../utils/GetPokemonAllTypes";
 import { useForm } from "react-hook-form";
 import styled from "styled-components"
 
-function SearchBox({handleResults}) {
-
+function SearchBoxPokOnlyOne({handleResults}) {
+    
     const { register, handleSubmit } = useForm();
 
-    const [pokemonTypes, setPokemonTypes] = useState( new Array() );
+    const URLPokemonSearch = 'https://pokeapi.co/api/v2/pokemon/'
     
-    
-    useEffect(() => {
-        GetPokemonAllTypes(setPokemonTypes)
-    }, [])
-
     const OnSubmit = (data) => {
-        console.log(data.type)
-        handleResults(data.type)
+        const SearchThis = URLPokemonSearch + data.name 
+        console.log(SearchThis.toLowerCase())
+        handleResults(SearchThis.toLowerCase())
     }
-
 
     return (
         <form onSubmit={handleSubmit(OnSubmit)}>
           <Separetor>
-          <h3>Search by Type</h3>
+          <h3>Search by Name</h3>
             <div>
-                <label htmlFor="type">
-                    Type:
+                <label htmlFor="name">
+                    Name:
                 </label>
-                <select ref={register} name="type" id="type">
-                    {pokemonTypes.map((type) => (
-                        <option key={type.name} value={type.url}>{type.name}</option>
-                    ))}
-                </select>
+                <input placeholder="Name" ref={register} name="name" id="name"/>
             </div>
             <button>Search Pokemons</button>
           </Separetor>
@@ -40,7 +30,7 @@ function SearchBox({handleResults}) {
     )
 }
 
-export default SearchBox
+export default SearchBoxPokOnlyOne
 
 const Separetor = styled.div`
     display: flex;
