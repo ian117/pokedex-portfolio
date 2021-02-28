@@ -5,7 +5,7 @@ import LoginPage from "./components/LoginPage";
 import { ProvideAuth } from "./provider/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Header from './components/Header'
-
+import Pokedex from "./components/Pokedex";
 
 function App() {
   return (
@@ -14,18 +14,16 @@ function App() {
       <div className="App">
         <Header></Header>
 
-
-
       <Switch>
           <Route exact path="/">
           <ul style={{listStyle:"none"}}>
-            <li><Link to="/public">Tyari Plaza</Link></li>
+            <li><Link to="/pokedex">Pokedex</Link></li>
             <li><Link to="/protected">Hidden Place</Link></li>
           </ul>
           </Route>
-          <Route path="/public">Estamos in Halo Invasion</Route>
+          <Route path="/pokedex"><Pokedex/></Route>
           <Route path="/login"><LoginPage/></Route>
-          <ProtectedRoute path="/protected">Estamos seguros y planeando la invasión</ProtectedRoute>
+          <ProtectedRoute path="/protected">Podemon Details</ProtectedRoute>
       </Switch>
       
       </div>
@@ -35,3 +33,6 @@ function App() {
 }
 
 export default App;
+
+// REACT_APP_POKEMON_STANDALONE='https://pokeapi.co/api/v2/pokemon/'
+// REACT_APP_POKEMON_TYPE='https://pokeapi.co/api/v2/type/'
