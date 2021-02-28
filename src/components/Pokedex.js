@@ -29,7 +29,7 @@ function Pokedex() {
             <SearchBoxPokOnlyOne handleResults={setPokemonsToShowURL}/>
           </SeparetorDivInputs>
         {pokemonsToShow.pokemon ? <PokemonCardGroup/> : null}  
-        {pokemonsToShow.sprites ? <PokemonCardGroup/> : null}  
+        {pokemonsToShow.sprites ? <PokemonCardGroup data={pokemonsToShow}/> : null}  
         </>
     )
 }
