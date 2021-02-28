@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components"
-import WatchLaterIcon from '@material-ui/icons/WatchLater';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+// import WatchLaterIcon from '@material-ui/icons/WatchLater';
+// import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import AuthButton from "./AuthButton";
 import { useAuth } from "../provider/AuthProvider";
 
@@ -20,7 +20,7 @@ function Header() {
                     User
                 </Name>
                 <UserImage>
-                    <img src="https://i.imgur.com/6VBx3io.png"/>
+                    <img alt="user" src="https://i.imgur.com/6VBx3io.png"/>
                 </UserImage></> :
                 null}
             </UserContainer>

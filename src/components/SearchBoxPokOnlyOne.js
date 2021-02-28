@@ -1,4 +1,4 @@
-import React, {useEffect, useState}  from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
 import styled from "styled-components"
 
@@ -21,7 +21,7 @@ function SearchBoxPokOnlyOne({handleResults}) {
                 <label htmlFor="name">
                     Name:
                 </label>
-                <input placeholder="Name" ref={register} name="name" id="name"/>
+                <input required placeholder="Name" ref={register} name="name" id="name"/>
             </div>
             <button>Search Pokemons</button>
           </Separetor>

@@ -7,7 +7,7 @@ function SearchBox({handleResults}) {
 
     const { register, handleSubmit } = useForm();
 
-    const [pokemonTypes, setPokemonTypes] = useState( new Array() );
+    const [pokemonTypes, setPokemonTypes] = useState([]);
 
 
     useEffect(() => {

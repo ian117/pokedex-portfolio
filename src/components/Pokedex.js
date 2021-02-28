@@ -3,16 +3,16 @@ import styled from "styled-components"
 import SearchBox from "./SearchBox";
 import SearchBoxPokOnlyOne from "./SearchBoxPokOnlyOne";
 import PokemonCardGroup from "./PokemonCardGroup";
-
+import GetPokemonCard from "../utils/GetPokemonCard";
 
 function Pokedex() {
 
-    const [ pokemonsToShowURL, setPokemonsToShowURL ] = useState(new Array() )
-    const [ pokemonsToShow, setPokemonsToShow ] = useState(new Array() )
+    const [ pokemonsToShowURL, setPokemonsToShowURL ] = useState([])
+    const [ pokemonsToShow, setPokemonsToShow ] = useState([])
 
     useEffect(() => {
         if (pokemonsToShowURL.length) {
-            console.log(pokemonsToShowURL)
+            GetPokemonCard(pokemonsToShowURL, setPokemonsToShow)
         }
         else {
             return
@@ -28,7 +28,7 @@ function Pokedex() {
             <SearchBox handleResults={setPokemonsToShowURL}/>
             <SearchBoxPokOnlyOne handleResults={setPokemonsToShowURL}/>
           </SeparetorDivInputs>
-        {pokemonsToShow.pokemons ? <PokemonCardGroup/> : null}  
+        {pokemonsToShow.pokemon ? <PokemonCardGroup/> : null}  
         {pokemonsToShow.sprites ? <PokemonCardGroup/> : null}  
         </>
     )
@@ -43,8 +43,8 @@ const SeparetorDivInputs = styled.div`
     justify-content: space-between;
 `
 
-const ShowPokemons = styled.div`
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-`
+// // const ShowPokemons = styled.div`
+// //     margin-top: 30px;
+// //     display: grid;
+// //     grid-template-columns: auto auto auto auto;
+// `

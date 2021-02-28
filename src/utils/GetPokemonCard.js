@@ -1,10 +1,10 @@
-import React from 'react'
 import axios from 'axios';
 
 const GetPokemonCard = async ( URL, handlerFunction ) => {
 	try {
 		const res = await axios.get(URL);
-		handlerFunction( res.data.results );
+		console.log( res.data);
+		handlerFunction(res.data)
 	} catch {
 		console.error("error");
 	}

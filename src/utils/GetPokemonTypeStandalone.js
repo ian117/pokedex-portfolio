@@ -1,4 +1,3 @@
-import React from 'react';
 import axios from 'axios';
 
 const GetPokemonTypeStandalone = async ( pokemonTypes, filterType ) => {
