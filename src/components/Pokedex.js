@@ -4,6 +4,7 @@ import SearchBox from "./SearchBox";
 import SearchBoxPokOnlyOne from "./SearchBoxPokOnlyOne";
 import PokemonCardGroup from "./PokemonCardGroup";
 import GetPokemonCard from "../utils/GetPokemonCard";
+import PokemonCardsandAxios from "./PokemonCardsandAxios";
 
 function Pokedex() {
 
@@ -28,7 +29,7 @@ function Pokedex() {
             <SearchBox handleResults={setPokemonsToShowURL}/>
             <SearchBoxPokOnlyOne handleResults={setPokemonsToShowURL}/>
           </SeparetorDivInputs>
-        {pokemonsToShow.pokemon ? <p>Hey</p> : null}  
+        {pokemonsToShow.pokemon ? <PokemonCardsandAxios lista={pokemonsToShow.pokemon}/> : null}  
         {pokemonsToShow.sprites ? <PokemonCardGroup data={pokemonsToShow}/> : null}
         </>
     )
