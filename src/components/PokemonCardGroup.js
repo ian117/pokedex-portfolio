@@ -9,7 +9,7 @@ function PokemonCardGroup({data}) {
     return (
         <CardContainer>
             {data ? <><p>{name}</p>
-            <img alt="PokemonImg" src={sprites.front_shiny}/>
+            <img alt="PokemonImg" src={sprites.front_shiny || sprites.front_default}/>
             <p>Type:</p>
             <ul>
             {types.map((type) => <li style={{listStyle:'none'}} key={type.type.name}>{type.type.name}</li>)}

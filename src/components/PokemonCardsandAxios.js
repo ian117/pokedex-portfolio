@@ -1,37 +1,45 @@
 import React, { useState,useEffect} from 'react'
+import PokemonCardGroup from "./PokemonCardGroup";
+
 
 function PokemonCardsandAxios({lista}) {
 
-    const [ arreglo, setArreglo] = useState([])
-    const [ Show, setShow] = useState(false)
+    const [ component, setComponent] = useState([])
 
+    const makeList = (arreglo) => {
+        const allItems = arreglo.map((item) => {
+            if (item === null) {
+                return
+            }
+            return <PokemonCardGroup key={item.name} data={item}/>
+        })
+        setComponent(allItems)
+    }
 
-    useEffect(() => {
-        setArreglo([...lista])
-        return () => {
-            setArreglo([])
+    useEffect( async () => {      
+        try {
+            const auxArr = []
+            lista.splice(0, 20).map((data) => {
+                auxArr.push(fetch(data.pokemon.url)
+                .then(raw => raw.json())
+                .then(result => result))}
+            )
+            // Este código de abajo :o
+            Promise.all(auxArr)
+            .then(res => {
+                makeList(res);
+            })
+            .catch(er => console.log(er))
+
+        } catch (err) {
+            console.error(err)
         }
     }, [lista])
-
-    useEffect(() => {
-        if (arreglo.length === 0) {
-            return setShow(false)
-        } else {
-            console.log(arreglo)
-            setShow(true)
-        }
-        return () => {
-            setShow(false)
-        }
-    }, [arreglo])
-
 
 
     return (
         <div>
-            {Show === false ? <p>False</p>: 
-            <p>Tru</p>
-            }            
+            {component}          
         </div>
     )
 }
