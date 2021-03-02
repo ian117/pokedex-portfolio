@@ -16,7 +16,7 @@ function SearchBoxPokOnlyOne({handleResults}) {
     return (
         <form onSubmit={handleSubmit(OnSubmit)}>
           <Separetor>
-          <h3>Search by Name</h3>
+          <h3 id="moveThisALittle">Search by Name</h3>
             <div>
                 <label htmlFor="name">
                     Name:
@@ -36,11 +36,12 @@ const Separetor = styled.div`
     flex-direction: column;
     height: 70px;
     justify-content: center;
-
+    margin: auto;
     button {
         cursor: pointer;
         width: 130px;
         align-self: center;
         margin-top: 20px;
+        margin-bottom: 20px;
     }
 `

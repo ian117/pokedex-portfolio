@@ -47,11 +47,11 @@ const Separetor = styled.div`
     flex-direction: column;
     height: 70px;
     justify-content: center;
+    margin: auto;
 
     button {
         cursor: pointer;
         width: 130px;
         align-self: center;
-        margin-top: 20px;
     }
 `

@@ -38,10 +38,14 @@ function Pokedex() {
 export default Pokedex
 
 const SeparetorDivInputs = styled.div`
+    margin: auto;
     height: 200px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 120px;
+    height: 100px;
+    width: 70%;
 `
 
 // // const ShowPokemons = styled.div`

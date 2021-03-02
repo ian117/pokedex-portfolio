@@ -9,3 +9,19 @@
   background-color: #202223;
   color: whitesmoke;
 }
+
+h3 {
+  margin-top: 80px;
+
+}
+#moveThisALittle{
+  margin-top: 100px;
+}
+button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#black {
+  color: black;
+}

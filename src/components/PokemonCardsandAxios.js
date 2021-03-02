@@ -1,26 +1,18 @@
 import React, { useState,useEffect} from 'react'
-import PokemonCardGroup from "./PokemonCardGroup";
-import styled from "styled-components"
+import Pagination from "./Pagination";
 
 
 
 function PokemonCardsandAxios({lista}) {
 
     const [ component, setComponent] = useState([])
-    const [ post, setPost] = useState([])
-    const [ loading, setLoading] = useState(false)
-    const [ postPerPage, setPostPerPage] = useState(4)
 
-    const makeList = (arreglo) => {
+    const MakeList = (arreglo) => {
         if (arreglo.length === 0){
             const nothing = <h2>No Luck</h2>
             return setComponent(nothing)
         }
-        const allItems = <DisplayGrid>
-                        {arreglo.map((item) => {
-                        return <PokemonCardGroup key={item.name} data={item}/>
-                            })}
-                    </DisplayGrid>
+        const allItems = <Pagination pokemons={arreglo}/>
         setComponent(allItems)
     }
 
@@ -35,7 +27,7 @@ function PokemonCardsandAxios({lista}) {
             // Este código de abajo :o
             Promise.all(auxArr)
             .then(res => {
-                makeList(res);
+                MakeList(res);
             })
             .catch(er => console.log(er))
 
@@ -43,7 +35,6 @@ function PokemonCardsandAxios({lista}) {
             console.error(err)
         }
     }, [lista])
-
 
     return (
         <div>
@@ -54,13 +45,3 @@ function PokemonCardsandAxios({lista}) {
 
 export default PokemonCardsandAxios
 
-
-const DisplayGrid = styled.div`
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-
-    div {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-`
