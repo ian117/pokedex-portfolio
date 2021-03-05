@@ -8,11 +8,9 @@ function PokemonCardsandAxios({lista}) {
     const [ component, setComponent] = useState([])
 
     const MakeList = (arreglo) => {
-        if (arreglo.length === 0){
-            const nothing = <h2>No Luck</h2>
-            return setComponent(nothing)
-        }
-        const allItems = <Pagination pokemons={arreglo}/>
+        const helpingArray = []
+        arreglo.map(promiseResult => helpingArray.push(promiseResult.value))
+        const allItems = <Pagination pokemons={helpingArray}/>
         setComponent(allItems)
     }
 
@@ -25,7 +23,10 @@ function PokemonCardsandAxios({lista}) {
                 .then(result => result))}
             )
             // Este código de abajo :o
-            Promise.all(auxArr)
+            // Promise.allSettled
+            // Puede solucionar lo de algunas peticiones fallidas, después
+            // ir a donde se mapea y solucionar (si existe mapearlo, si no...)
+            Promise.allSettled(auxArr)
             .then(res => {
                 MakeList(res);
             })

@@ -29,8 +29,12 @@ function Pagination({pokemons}) {
         <>
         <SecondPartOfPagination postPorPage={postPerPage} totalPost={post.length} paginate={paginate}/>
         <DisplayGrid>
-        {CurrentPost.map((item) => {
-            return <PokemonCardGroup key={item.name} data={item}/>})
+        {CurrentPost.map((item) => { if (item !== undefined) {
+            return <PokemonCardGroup key={item.name} data={item}/>
+        } else {
+            return null
+        }
+            })
         }
 
         </DisplayGrid>
