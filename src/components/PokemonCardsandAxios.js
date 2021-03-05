@@ -22,10 +22,7 @@ function PokemonCardsandAxios({lista}) {
                 .then(raw => raw.json())
                 .then(result => result))}
             )
-            // Este código de abajo :o
-            // Promise.allSettled
-            // Puede solucionar lo de algunas peticiones fallidas, después
-            // ir a donde se mapea y solucionar (si existe mapearlo, si no...)
+            
             Promise.allSettled(auxArr)
             .then(res => {
                 MakeList(res);

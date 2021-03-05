@@ -15,7 +15,7 @@ const Encounters = ({match}) => {
         <div>
             <p>Where you can encounter this pokemon 🙀🙀: </p>
             <ul>
-                {encounter.length !== 0 ? encounter.map((location) => <li style={{listStyle:"none"}} key={location.location_area.name}>{location.location_area.name}</li>) : null}
+                {encounter.length !== 0 ? encounter.map((location) => <li style={{listStyle:"none"}} key={location.location_area.name}>{location.location_area.name}</li>) : <p>We don´t know 🤗🤣</p>}
             </ul>
             <br/>
             <Link to={`/pokedex/${match.params.id}`}><button>Return</button></Link>
