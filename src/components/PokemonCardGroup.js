@@ -1,14 +1,17 @@
 import React from 'react'
 import styled from "styled-components"
+import {Link } from "react-router-dom";
 
 function PokemonCardGroup({data}) {
     
-    const  {name, sprites, types, stats} = data;
+    const  {id , name, sprites, types, stats} = data;
 
 
     return (
         <CardContainer>
-            {data ? <><p>{name}</p>
+            {data ? <><Link to={`/pokedex/${id}`}>
+                <p>{name}</p>
+            </Link>
             <img alt="PokemonImg" src={sprites.front_shiny || sprites.front_default}/>
             <p>Type:</p>
             <ul>

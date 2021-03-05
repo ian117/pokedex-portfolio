@@ -6,6 +6,8 @@ import { ProvideAuth } from "./provider/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Header from './components/Header'
 import Pokedex from "./components/Pokedex";
+import PostDetails from "./components/PostDetails";
+import Encounters from "./components/Encounters";
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
             <li><Link to="/protected">Hidden Place</Link></li>
           </ul>
           </Route>
-          <Route path="/pokedex"><Pokedex/></Route>
+          <Route path="/pokedex" exact><Pokedex/></Route>
+          <Route path="/pokedex/:id" exact component={PostDetails}></Route>
+          <Route path="/pokedex/:id/encounters" component={Encounters}></Route>
           <Route path="/login"><LoginPage/></Route>
           <ProtectedRoute path="/protected">Podemon Details</ProtectedRoute>
       </Switch>
@@ -33,6 +37,3 @@ function App() {
 }
 
 export default App;
-
-// REACT_APP_POKEMON_STANDALONE='https://pokeapi.co/api/v2/pokemon/'
-// REACT_APP_POKEMON_TYPE='https://pokeapi.co/api/v2/type/'
